@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\EmpresasController;
+use App\Http\Controllers\RelatosController;
 
 
 
@@ -32,3 +33,7 @@ Route::post('empresas', [EmpresasController::class, 'create']);
 Route::put('empresas/{id}', [EmpresasController::class, 'update']);
 Route::delete('empresas/{id}', [EmpresasController::class, 'delete']);
 
+Route::get('relatos', [RelatosController::class, 'read']);
+Route::post('relatos', [RelatosController::class, 'create']);
+Route::put('relatos/{id}', [RelatosController::class, 'update']);
+Route::delete('relatos/{id}', [RelatosController::class, 'delete']);
