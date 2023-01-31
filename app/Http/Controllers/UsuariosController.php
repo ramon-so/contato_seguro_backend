@@ -13,9 +13,9 @@ class UsuariosController extends Controller
         $usuarios = new Usuarios;
         $usuarios->nome = $request->nome;
         $usuarios->email = $request->email;
-        $usuarios->telefone = $request->telefone;
-        $usuarios->data_de_nascimento = date('Y-m-d', strtotime($request->data_de_nascimento));
-        $usuarios->cidade_onde_nasceu = $request->cidade_onde_nasceu;
+        $usuarios->telefone = $request->telefone ? $request->telefone : null;
+        $usuarios->data_de_nascimento = $request->data_de_nascimento ? date('Y-m-d', strtotime($request->data_de_nascimento)): null;
+        $usuarios->cidade_onde_nasceu = $request->cidade_onde_nasceu ? $request->cidade_onde_nasceu : null;
         $usuarios->save();
         return response()->json(['message' => 'Usuário criado com sucesso!', $usuarios], 201);
     }

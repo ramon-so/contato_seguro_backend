@@ -17,9 +17,9 @@ return new class extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('email');
-            $table->string('telefone');
-            $table->date('data_de_nascimento');
-            $table->string('cidade_onde_nasceu');
+            $table->string('telefone')->nullable();
+            $table->date('data_de_nascimento')->nullable();
+            $table->string('cidade_onde_nasceu')->nullable();
             $table->timestamps();
         });
     }
