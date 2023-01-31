@@ -17,7 +17,7 @@ class UsuariosController extends Controller
         $usuarios->data_de_nascimento = date('Y-m-d', strtotime($request->data_de_nascimento));
         $usuarios->cidade_onde_nasceu = $request->cidade_onde_nasceu;
         $usuarios->save();
-        return response()->json(['message' => 'Usuário criado com sucesso!'], 201);
+        return response()->json(['message' => 'Usuário criado com sucesso!', $usuarios], 201);
     }
 
     public function read()
@@ -25,7 +25,7 @@ class UsuariosController extends Controller
         $usuarios = Usuarios::all();
 
         if (count($usuarios) == 0) {
-            return response()->json(['message' => 'Nenhum usuário cadastrado'], 404);
+            return response()->json(['message' => 'Nenhum usuário cadastrado'], 200);
         }
 
         return response()->json($usuarios, 200);

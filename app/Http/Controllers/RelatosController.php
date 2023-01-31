@@ -18,7 +18,7 @@ class RelatosController extends Controller
         $relatos->usuarios_id = $data['usuarios_id'];
         $relatos->relato = $request->relato;
         $relatos->save();
-        return response()->json(['message' => 'Relato criado com sucesso!'], 201);
+        return response()->json(['message' => 'Relato criado com sucesso!', $relatos], 201);
     }
 
     public function read()
@@ -26,7 +26,7 @@ class RelatosController extends Controller
         $relatos = Relatos::all();
 
         if (count($relatos) == 0) {
-            return response()->json(['message' => 'Nenhuma relato cadastrado'], 404);
+            return response()->json(['message' => 'Nenhuma relato cadastrado'], 200);
         }
 
         return response()->json($relatos, 200);

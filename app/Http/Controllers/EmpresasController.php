@@ -14,7 +14,7 @@ class EmpresasController extends Controller
         $empresas->cnpj = $request->cnpj;
         $empresas->endereco = $request->endereco;
         $empresas->save();
-        return response()->json(['message' => 'Empresa criada com sucesso!'], 201);
+        return response()->json(['message' => 'Empresa criada com sucesso!', $empresas],  201);
     }
 
     public function read()
@@ -22,7 +22,7 @@ class EmpresasController extends Controller
         $empresas = Empresas::all();
 
         if (count($empresas) == 0) {
-            return response()->json(['message' => 'Nenhuma empresa cadastrada'], 404);
+            return response()->json(['message' => 'Nenhuma empresa cadastrada'], 200);
         }
 
         return response()->json($empresas, 200);
