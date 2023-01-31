@@ -2,6 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariosController;
+use App\Http\Controllers\EmpresasController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('usuarios', [UsuariosController::class, 'read']);
+Route::post('usuarios', [UsuariosController::class, 'create']);
+Route::put('usuarios/{id}', [UsuariosController::class, 'update']);
+Route::delete('usuarios/{id}', [UsuariosController::class, 'delete']);
+
+Route::get('empresas', [EmpresasController::class, 'read']);
+Route::post('empresas', [EmpresasController::class, 'create']);
+Route::put('empresas/{id}', [EmpresasController::class, 'update']);
+Route::delete('empresas/{id}', [EmpresasController::class, 'delete']);
+
