@@ -31,9 +31,9 @@ class UsuariosController extends Controller
         return response()->json($usuarios, 200);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $usuarios = Usuarios::find($id);
+        $usuarios = Usuarios::find($request->id);
 
         if (!$usuarios) {
             return response()->json(['message' => 'Usuário não encontrado'], 404);
@@ -49,9 +49,9 @@ class UsuariosController extends Controller
         return response()->json(['message' => 'Usuário atualizado com sucesso!'], 200);
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $usuarios = Usuarios::find($id);
+        $usuarios = Usuarios::find($request->id);
 
         if (!$usuarios) {
             return response()->json(['message' => 'Usuário não encontrado'], 404);

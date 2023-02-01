@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\EmpresasController;
+use App\Http\Controllers\GerenciamentoController;
 use App\Http\Controllers\RelatosController;
 
 
@@ -25,13 +26,15 @@ use App\Http\Controllers\RelatosController;
 
 Route::get('usuarios', [UsuariosController::class, 'read']);
 Route::post('usuarios', [UsuariosController::class, 'create']);
-Route::put('usuarios/{id}', [UsuariosController::class, 'update']);
-Route::delete('usuarios/{id}', [UsuariosController::class, 'delete']);
+Route::put('usuarios', [UsuariosController::class, 'update']);
+Route::delete('usuarios', [UsuariosController::class, 'delete']);
 
 Route::get('empresas', [EmpresasController::class, 'read']);
 Route::post('empresas', [EmpresasController::class, 'create']);
-Route::put('empresas/{id}', [EmpresasController::class, 'update']);
-Route::delete('empresas/{id}', [EmpresasController::class, 'delete']);
+Route::put('empresas', [EmpresasController::class, 'update']);
+Route::delete('empresas', [EmpresasController::class, 'delete']);
+
+Route::post('gerenciamento/alocar-usuario', [GerenciamentoController::class, 'alocarUsuario']);
 
 Route::get('relatos', [RelatosController::class, 'read']);
 Route::post('relatos', [RelatosController::class, 'create']);

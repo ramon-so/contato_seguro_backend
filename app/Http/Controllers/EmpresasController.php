@@ -28,9 +28,9 @@ class EmpresasController extends Controller
         return response()->json($empresas, 200);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $empresas = Empresas::find($id);
+        $empresas = Empresas::find($request->id);
 
         if (!$empresas) {
             return response()->json(['message' => 'Empresa não encontrada'], 404);
@@ -44,9 +44,9 @@ class EmpresasController extends Controller
         return response()->json(['message' => 'Empresa atualizada com sucesso!'], 200);
     }
 
-    public function delete($id)
+    public function delete(Request $request)
     {
-        $empresas = Empresas::find($id);
+        $empresas = Empresas::find($request->id);
 
         if (!$empresas) {
             return response()->json(['message' => 'Empresa não encontrada'], 404);
